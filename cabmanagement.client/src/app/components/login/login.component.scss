@@ -3,15 +3,18 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full viewport height */
-  background-color: #f5f5f5; /* Optional background color for the container */
+  background-color: #f0f0f0; /* Background color for the container */
+  overflow: hidden; /* Prevent any overflow causing scrollbars */
 }
 
 form {
   width: 300px; /* Set a fixed width for the form */
   padding: 2em;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Background color for the form */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  box-sizing: border-box; /* Includes padding and border in the width */
+  overflow: hidden; /* Ensure no overflow from within the form */
 }
 
 .form-group {
