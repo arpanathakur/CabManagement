@@ -1,0 +1,40 @@
+<div class="modal">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeModal()">×</span>
+    <h2>{{ isEdit ? 'Edit Vehicle' : 'Add New Vehicle' }}</h2>
+    <form (submit)="save()">
+      <div class="form-group">
+        <label>Registration Number:</label>
+        <input type="text" [(ngModel)]="vehicle.name" required>
+      </div>
+      <div class="form-group">
+        <label>Manufacturer:</label>
+        <input type="text" [(ngModel)]="vehicle.address" required>
+      </div>
+      <div class="form-group">
+        <label>Model Number:</label>
+        <input type="text" [(ngModel)]="vehicle.city" required>
+      </div>
+      <div class="form-group">
+        <label>Model Year:</label>
+        <input type="text" [(ngModel)]="vehicle.state" required>
+      </div>
+      <div class="form-group">
+        <label>Model Name:</label>
+        <input type="text" [(ngModel)]="vehicle.country" required>
+      </div>
+      <div class="form-group">
+        <label>Colour:</label>
+        <input type="text" [(ngModel)]="vehicle.pincode" required>
+      </div>
+      <div class="form-group">
+        <label>Variant:</label>
+        <input type="text" [(ngModel)]="vehicle.contactNo" required>
+      </div>
+      <div style="text-align-last: right;">
+        <button class="button">Cancel</button>
+        <button type="submit" class="button" style="margin-left: 0.5em">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>

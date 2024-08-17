@@ -1,0 +1,52 @@
+<div class="vehicle-container">
+  <!-- Search and Action Buttons -->
+  <div class="header-actions">
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+    </div>
+    <div class="right-actions">
+      <button class="add-button button" (click)="openAddVehicleModal()">Add</button>
+      <button class="bulk-delete-button button" [disabled]="!isAnyRowSelected()" (click)="bulkDelete()">Bulk Delete</button>
+    </div>
+  </div>
+
+  <!-- Vehicle List Table -->
+  <table class="vehicle-list">
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleSelectAll($event)"></th>
+        <th>Registration Number</th>
+        <th>Manufacturer</th>
+        <th>Model Number</th>
+        <th>Model Year</th>
+        <th>Model Name</th>
+        <th>Colour</th>
+        <th>Variant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicles">
+        <td><input type="checkbox" [(ngModel)]="vehicle.selected"></td>
+        <td>{{ vehicle.registrationNumber }}</td>
+        <td>{{ vehicle.manufacturer }}</td>
+        <td>{{ vehicle.modelNumber }}</td>
+        <td>{{ vehicle.modelYear }}</td>
+        <td>{{ vehicle.modelName }}</td>
+        <td>{{ vehicle.colour }}</td>
+        <td>{{ vehicle.vaiant }}</td>
+        <td>
+          <button (click)="openEditVehicleModal(vehicle)">Edit</button>
+          <button (click)="deleteVehicle(vehicle)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Vehicle Modal -->
+  <app-vehicle-modal *ngIf="isModalOpen"
+                     [vehicle]="selectedVehicle"
+                     [isEdit]="isEdit"
+                     (close)="closeModal()"
+                     (saveChanges)="saveVehicle($event)">
+  </app-vehicle-modal>
+</div>

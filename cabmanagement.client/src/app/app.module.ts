@@ -13,6 +13,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CompanyComponent } from './components/company/company.component';
 import { CompanyModalComponent } from './components/company-modal/company-modal.component';
+import { DriverComponent } from './components/driver/driver.component';
+import { DriverModalComponent } from './components/driver-modal/driver-modal.component';
+import { VehicleComponent } from './components/vehicle/vehicle.component';
+import { VehicleModalComponent } from './components/vehicle-modal/vehicle-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { CompanyModalComponent } from './components/company-modal/company-modal.
     DashboardComponent,
     NavigationComponent,
     CompanyComponent,
-    CompanyModalComponent
+    CompanyModalComponent,
+    DriverComponent,
+    DriverModalComponent,
+    VehicleComponent,
+    VehicleModalComponent
   ],
   imports: [
     HttpClientModule,

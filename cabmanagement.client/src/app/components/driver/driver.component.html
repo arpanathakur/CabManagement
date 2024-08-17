@@ -1,0 +1,53 @@
+<div class="driver-container">
+  <!-- Search and Action Buttons -->
+  <div class="header-actions">
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+    </div>
+    <div class="right-actions">
+      <button class="add-button button" (click)="openAddDriverModal()">Add</button>
+      <button class="bulk-delete-button button" [disabled]="!isAnyRowSelected()" (click)="bulkDelete()">Bulk Delete</button>
+    </div>
+  </div>
+
+  <!-- Driver List Table -->
+  <table class="driver-list">
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleSelectAll($event)"></th>
+        <th>Driver Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Pincode</th>
+        <th>Contact No</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of drivers">
+        <td><input type="checkbox" [(ngModel)]="driver.selected"></td>
+        <td>{{ driver.name }}</td>
+        <td>{{ driver.address }}</td>
+        <td>{{ driver.city }}</td>
+        <td>{{ driver.state }}</td>
+        <td>{{ driver.country }}</td>
+        <td>{{ driver.pincode }}</td>
+        <td>{{ driver.contactNo }}</td>
+        <td>
+          <button (click)="openEditDriverModal(driver)">Edit</button>
+          <button (click)="deleteDriver(driver)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Company Modal -->
+  <app-driver-modal *ngIf="isModalOpen"
+                     [driver]="selectedDriver"
+                     [isEdit]="isEdit"
+                     (close)="closeModal()"
+                     (saveChanges)="saveDriver($event)">
+  </app-driver-modal>
+</div>

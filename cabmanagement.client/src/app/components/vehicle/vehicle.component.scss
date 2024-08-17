@@ -1,0 +1,61 @@
+.vehicle-container {
+  padding: 1em;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.right-actions {
+  display: flex;
+  gap: 1em;
+}
+
+.vehicle-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vehicle-list th, .vehicle-list td {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+
+.vehicle-list th {
+  background-color: #f4f4f4;
+}
+
+.vehicle-list td button {
+  margin-right: 0.5em;
+}
+
+.bulk-delete-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search-box {
+  position: relative;
+  width: 250px;
+
+  input {
+    width: 100%;
+    padding: 8px 10px 8px 35px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
+
+.button {
+  padding: 0.5em 1em;
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
