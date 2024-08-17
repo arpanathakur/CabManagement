@@ -1,0 +1,53 @@
+<div class="company-container">
+  <!-- Search and Action Buttons -->
+  <div class="header-actions">
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+    </div>
+    <div class="right-actions">
+      <button class="add-button button" (click)="openAddCompanyModal()" >Add</button>
+      <button class="bulk-delete-button button" [disabled]="!isAnyRowSelected()" (click)="bulkDelete()">Bulk Delete</button>
+    </div>
+  </div>
+
+  <!-- Company List Table -->
+  <table class="company-list">
+    <thead>
+      <tr>
+        <th><input type="checkbox" (change)="toggleSelectAll($event)"></th>
+        <th>Company Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Pincode</th>
+        <th>Contact No</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of companies">
+        <td><input type="checkbox" [(ngModel)]="company.selected"></td>
+        <td>{{ company.name }}</td>
+        <td>{{ company.address }}</td>
+        <td>{{ company.city }}</td>
+        <td>{{ company.state }}</td>
+        <td>{{ company.country }}</td>
+        <td>{{ company.pincode }}</td>
+        <td>{{ company.contactNo }}</td>
+        <td>
+          <button (click)="openEditCompanyModal(company)">Edit</button>
+          <button (click)="deleteCompany(company)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Company Modal -->
+  <app-company-modal *ngIf="isModalOpen"
+                     [company]="selectedCompany"
+                     [isEdit]="isEdit"
+                     (close)="closeModal()"
+                     (saveChanges)="saveCompany($event)">
+  </app-company-modal>
+</div>

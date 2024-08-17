@@ -1,0 +1,16 @@
+
+
+<div class="app-container">
+  <ng-container *ngIf="!isLoginPage()">
+    <app-header></app-header>
+  </ng-container>
+  <div class="content-container">
+    <ng-container *ngIf="!isLoginPage()">
+      <app-navigation></app-navigation>
+    </ng-container>
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  </div>

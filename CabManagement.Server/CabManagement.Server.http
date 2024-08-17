@@ -1,0 +1,6 @@
+@CabManagement.Server_HostAddress = http://localhost:5250
+
+GET {{CabManagement.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
